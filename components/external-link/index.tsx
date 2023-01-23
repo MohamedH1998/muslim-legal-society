@@ -2,19 +2,21 @@ import React, { ReactNode } from "react";
 
 interface Props {
   className?: string;
-  onClick?: () => void;
+  link: string;
   children: string | ReactNode;
 }
 
-const Button = ({ children, onClick, className }: Props) => {
+const ExternalLink = ({ children, link, className }: Props) => {
   return (
-    <button
-      onClick={onClick}
+    <a
       className={`inline-block bg-mountains-green text-white px-12 cursor-pointer py-2 md:text-lg rounded-md text-center ${className}`}
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       {children}
-    </button>
+    </a>
   );
 };
 
-export default Button;
+export default ExternalLink;
